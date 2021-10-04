@@ -2,8 +2,8 @@ import React from "react";
 import { Menu } from "antd";
 import { GifOutlined } from "@ant-design/icons";
 import { nanoid } from "nanoid";
-import styles from "./SideMenu.module.css";
 import { sideMenuList } from "./mock";
+import styles from "./SideMenu.module.css";
 
 export const SideMenu: React.FC = () => {
   return (

@@ -66,8 +66,10 @@
 }
 
 .main-menu {
-  padding-left: 8% !important;
-  padding-right: 6% !important;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 7% !important;
+  padding-right: 8% !important;
   background-color: #1976d2 !important;
   color: #f5f5f5 !important;
 }

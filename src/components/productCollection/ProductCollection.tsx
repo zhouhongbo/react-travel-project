@@ -22,7 +22,9 @@ export const ProductCollection: React.FC<PropsType> = ({
           <img src={sideImage} className={styles["side-image"]} />
         </Col>
         <Col span={20}>
+          {/* 第一、二行的图片 */}
           <Row>
+            {/* 大图 */}
             <Col span={12}>
               <ProductImage
                 id={products[0].id}
@@ -32,6 +34,7 @@ export const ProductCollection: React.FC<PropsType> = ({
                 price={products[0].price}
               />
             </Col>
+            {/* 四张小图 */}
             <Col span={12}>
               <Row>
                 <Col span={12}>
@@ -75,6 +78,7 @@ export const ProductCollection: React.FC<PropsType> = ({
               </Row>
             </Col>
           </Row>
+          {/* 第三行的图片 */}
           <Row>
             <Col span={6}>
               <ProductImage

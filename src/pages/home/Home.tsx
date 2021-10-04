@@ -62,7 +62,9 @@ export const Home: React.FC = () => {
   return (
     <div>
       <Header />
+      {/* 网站内容 */}
       <div className={styles["page-content"]}>
+        {/* 侧边菜单和走马灯 */}
         <Row style={{ marginTop: 20 }}>
           <Col span={6}>
             <div>
@@ -75,6 +77,7 @@ export const Home: React.FC = () => {
             </div>
           </Col>
         </Row>
+        {/* 爆款推荐 */}
         <ProductCollection
           title={
             <Typography.Title level={3} type="warning">
@@ -84,6 +87,7 @@ export const Home: React.FC = () => {
           sideImage={sideImage1}
           products={productList[0].touristRoutes}
         />
+        {/* 新品上市 */}
         <ProductCollection
           title={
             <Typography.Title level={3} type="danger">
@@ -93,6 +97,7 @@ export const Home: React.FC = () => {
           sideImage={sideImage2}
           products={productList[1].touristRoutes}
         />
+        {/* 国内游推荐 */}
         <ProductCollection
           title={
             <Typography.Title level={3} type="success">

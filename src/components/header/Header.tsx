@@ -44,11 +44,76 @@ export const Header: React.FC = () => {
     return "新语言";
   };
 
+  const menuConfig = [
+    {
+      key: "1",
+      content: t("header.home_page"),
+    },
+    {
+      key: "2",
+      content: t("header.weekend"),
+    },
+    {
+      key: "3",
+      content: t("header.group"),
+    },
+    {
+      key: "4",
+      content: t("header.backpack"),
+    },
+    {
+      key: "5",
+      content: t("header.private"),
+    },
+    {
+      key: "6",
+      content: t("header.cruise"),
+    },
+    {
+      key: "7",
+      content: t("header.hotel"),
+    },
+    {
+      key: "8",
+      content: t("header.local"),
+    },
+    {
+      key: "9",
+      content: t("header.theme"),
+    },
+    {
+      key: "11",
+      content: t("header.study"),
+    },
+    {
+      key: "12",
+      content: t("header.visa"),
+    },
+    {
+      key: "13",
+      content: t("header.enterprise"),
+    },
+    {
+      key: "14",
+      content: t("header.high_end"),
+    },
+    {
+      key: "15",
+      content: t("header.outdoor"),
+    },
+    {
+      key: "16",
+      content: t("header.insurance"),
+    },
+  ];
+
   return (
     <div className={styles["app-header"]}>
+      {/* 第一行 注册登录 */}
       <div className={styles["top-header"]}>
         <div className={styles.inner}>
           <Typography.Text>{t("header.slogan")}</Typography.Text>
+          {/* 语言选择 */}
           <Dropdown.Button
             style={{ marginLeft: 15 }}
             overlay={
@@ -63,6 +128,7 @@ export const Header: React.FC = () => {
           >
             {displayLanguage(language)}
           </Dropdown.Button>
+          {/* 注册登录 */}
           <Button.Group className={styles["button-group"]}>
             <Button onClick={() => history.push("register")}>
               {t("header.register")}
@@ -73,6 +139,7 @@ export const Header: React.FC = () => {
           </Button.Group>
         </div>
       </div>
+      {/* 第二行 搜索 */}
       <Layout.Header className={styles["main-header"]}>
         <span onClick={() => history.push("/")}>
           <img src={logo} alt="logo" className={styles["App-logo"]} />
@@ -85,23 +152,11 @@ export const Header: React.FC = () => {
           className={styles["search-input"]}
         />
       </Layout.Header>
+      {/* 第三行 目录 */}
       <Menu mode="horizontal" className={styles["main-menu"]}>
-        <Menu.Item key="1"> {t("header.home_page")} </Menu.Item>
-        <Menu.Item key="2"> {t("header.weekend")} </Menu.Item>
-        <Menu.Item key="3"> {t("header.group")} </Menu.Item>
-        <Menu.Item key="4"> {t("header.backpack")} </Menu.Item>
-        <Menu.Item key="5"> {t("header.private")} </Menu.Item>
-        <Menu.Item key="6"> {t("header.cruise")} </Menu.Item>
-        <Menu.Item key="7"> {t("header.hotel")} </Menu.Item>
-        <Menu.Item key="8"> {t("header.local")} </Menu.Item>
-        <Menu.Item key="9"> {t("header.theme")} </Menu.Item>
-        <Menu.Item key="10"> {t("header.custom")} </Menu.Item>
-        <Menu.Item key="11"> {t("header.study")} </Menu.Item>
-        <Menu.Item key="12"> {t("header.visa")} </Menu.Item>
-        <Menu.Item key="13"> {t("header.enterprise")} </Menu.Item>
-        <Menu.Item key="14"> {t("header.high_end")} </Menu.Item>
-        <Menu.Item key="15"> {t("header.outdoor")} </Menu.Item>
-        <Menu.Item key="16"> {t("header.insurance")} </Menu.Item>
+        {menuConfig.map((item) => (
+          <Menu.Item key={item.key}>{item.content}</Menu.Item>
+        ))}
       </Menu>
     </div>
   );

@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Home, LogIn, Register, Detail } from "./pages";
 import styles from "./App.module.css";
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className={styles.App}>
       <BrowserRouter>
