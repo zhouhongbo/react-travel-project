@@ -1,12 +1,12 @@
-import React from 'react'
-import { Row, Col, Typography, Divider } from 'antd'
-import { ProductImage } from '..'
-import styles from './ProductCollection.module.css'
+import React from "react";
+import { Row, Col, Typography, Divider } from "antd";
+import { ProductImage } from "..";
+import styles from "./ProductCollection.module.css";
 
 interface PropsType {
-  title: JSX.Element
-  sideImage: string
-  products: any[]
+  title: JSX.Element;
+  sideImage: string;
+  products: any[];
 }
 
 export const ProductCollection: React.FC<PropsType> = ({
@@ -19,14 +19,14 @@ export const ProductCollection: React.FC<PropsType> = ({
       <Divider orientation="left">{title}</Divider>
       <Row>
         <Col span={4}>
-          <img src={sideImage} className={styles['side-image']} />
+          <img src={sideImage} className={styles["side-image"]} />
         </Col>
         <Col span={20}>
           <Row>
             <Col span={12}>
               <ProductImage
                 id={products[0].id}
-                size={'large'}
+                size={"large"}
                 title={products[0].title}
                 imageSrc={products[0].touristRoutePictures[0].url}
                 price={products[0].price}
@@ -116,5 +116,5 @@ export const ProductCollection: React.FC<PropsType> = ({
         </Col>
       </Row>
     </div>
-  )
-}
+  );
+};

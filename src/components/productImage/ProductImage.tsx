@@ -1,14 +1,14 @@
-import React from 'react'
-import { Image, Typography } from 'antd'
-import { withRouter, RouteComponentProps, Link } from 'react-router-dom'
-import styles from './ProductImage.module.css'
+import React from "react";
+import { Image, Typography } from "antd";
+import { withRouter, RouteComponentProps, Link } from "react-router-dom";
+import styles from "./ProductImage.module.css";
 
 interface PropsType extends RouteComponentProps {
-  id: string | number
-  size: 'large' | 'small'
-  imageSrc: string
-  price: number | string
-  title: string
+  id: string | number;
+  size: "large" | "small";
+  imageSrc: string;
+  price: number | string;
+  title: string;
 }
 
 const ProductImageComponent: React.FC<PropsType> = ({
@@ -23,13 +23,13 @@ const ProductImageComponent: React.FC<PropsType> = ({
 }) => {
   return (
     <Link to={`detail/${id}`}>
-      {size === 'large' ? (
+      {size === "large" ? (
         <Image src={imageSrc} height={285} width={600} />
       ) : (
         <Image src={imageSrc} height={120} width={284} />
       )}
       <div>
-        <Typography.Text type="secondary" style={{ display: 'block' }}>
+        <Typography.Text type="secondary" style={{ display: "block" }}>
           {title.slice(0, 21)}
         </Typography.Text>
         <Typography.Text type="danger" strong>
@@ -37,7 +37,7 @@ const ProductImageComponent: React.FC<PropsType> = ({
         </Typography.Text>
       </div>
     </Link>
-  )
-}
+  );
+};
 
-export const ProductImage = withRouter(ProductImageComponent)
+export const ProductImage = withRouter(ProductImageComponent);

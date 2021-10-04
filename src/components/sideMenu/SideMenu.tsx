@@ -1,13 +1,13 @@
-import React from 'react'
-import { Menu } from 'antd'
-import { GifOutlined } from '@ant-design/icons'
-import { nanoid } from 'nanoid'
-import styles from './SideMenu.module.css'
-import { sideMenuList } from './mock'
+import React from "react";
+import { Menu } from "antd";
+import { GifOutlined } from "@ant-design/icons";
+import { nanoid } from "nanoid";
+import styles from "./SideMenu.module.css";
+import { sideMenuList } from "./mock";
 
 export const SideMenu: React.FC = () => {
   return (
-    <Menu mode="vertical" className={styles['side-menu']}>
+    <Menu mode="vertical" className={styles["side-menu"]}>
       {sideMenuList.map((item) => (
         <Menu.SubMenu
           key={nanoid()}
@@ -41,5 +41,5 @@ export const SideMenu: React.FC = () => {
         </Menu.SubMenu>
       ))}
     </Menu>
-  )
-}
+  );
+};

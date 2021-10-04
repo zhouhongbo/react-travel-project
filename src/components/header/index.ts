@@ -1,2 +1,2 @@
 // export * from './HeaderClass'
-export * from './Header'
+export * from "./Header";
