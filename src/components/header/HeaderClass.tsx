@@ -5,15 +5,15 @@ import { Dispatch } from "redux";
 import { withTranslation, WithTranslation } from "react-i18next";
 import { Layout, Typography, Input, Menu, Button, Dropdown } from "antd";
 import { GlobalOutlined } from "@ant-design/icons";
-import { RootState } from "../../redux/store";
+import { StateType } from "../../store";
 import {
   changeLanguageActionCreator,
   addLanguageActionCreator,
-} from "../../redux/language/languageActions";
+} from "../../store/actions/language";
 import styles from "./Header.module.css";
 import logo from "../../assets/logo.svg";
 
-const mapStateToProps = (state: RootState) => {
+const mapStateToProps = (state: StateType) => {
   return {
     language: state.language.language,
     languageList: state.language.languageList,

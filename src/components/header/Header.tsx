@@ -9,11 +9,12 @@ import { useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { Layout, Typography, Input, Menu, Button, Dropdown } from "antd";
 import { GlobalOutlined } from "@ant-design/icons";
-import { useSelector } from "../../redux/hooks";
+import { useSelector } from "react-redux";
+import { StateType } from "../../store";
 import {
   addLanguageActionCreator,
   changeLanguageActionCreator,
-} from "../../redux/language/languageActions";
+} from "../../store/actions/language";
 import styles from "./Header.module.css";
 import logo from "../../assets/logo.svg";
 
@@ -23,8 +24,10 @@ export const Header: React.FC = () => {
   const params = useParams();
   const match = useRouteMatch();
 
-  const language = useSelector((state: any) => state.language.language);
-  const languageList = useSelector((state: any) => state.language.languageList);
+  const language = useSelector((state: StateType) => state.language.language);
+  const languageList = useSelector(
+    (state: StateType) => state.language.languageList
+  );
   const dispatch = useDispatch();
   const { t } = useTranslation();
 

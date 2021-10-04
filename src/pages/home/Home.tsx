@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "../../redux/hooks";
+import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { Row, Col, Typography, Spin } from "antd";
@@ -14,14 +14,15 @@ import {
 } from "../../components";
 // import { productList1, productList2, productList3 } from './mock'
 import {
-  fetchRecommendProductStartActionCreator,
-  fetchRecommendProductSuccessActionCreator,
-  fetchRecommendProductFailActionCreator,
-} from "../../redux/recommendProducts/recommendProductsActions";
+  fetchProductStartActionCreator,
+  fetchProductSuccessActionCreator,
+  fetchProductFailActionCreator,
+} from "../../store/actions/products";
 import sideImage1 from "../../assets/images/sider_2019_12-09.png";
 import sideImage2 from "../../assets/images/sider_2019_02-04.png";
 import sideImage3 from "../../assets/images/sider_2019_02-04-2.png";
 import styles from "./Home.module.css";
+import { StateType } from "../../store";
 
 export const Home: React.FC = () => {
   // const [productList, setProductList] = useState<any>()
@@ -29,28 +30,30 @@ export const Home: React.FC = () => {
   // const [errorMsg, setErrorMsg] = useState<string | null>(null)
 
   const productList = useSelector(
-    (state: any) => state.recommendProducts.productList
+    (state: StateType) => state.products.productList
   );
-  const isLoad = useSelector((state: any) => state.recommendProducts.isLoad);
+  const isLoad = useSelector(
+    (state: StateType) => state.products.isLoad
+  );
   const errorMsg = useSelector(
-    (state: any) => state.recommendProducts.errorMsg
+    (state: StateType) => state.products.errorMsg
   );
   const dispatch = useDispatch();
 
   const { t } = useTranslation();
 
   useEffect(() => {
-    dispatch(fetchRecommendProductStartActionCreator());
+    dispatch(fetchProductStartActionCreator());
     axios
       .get("http://123.56.149.216:8080/api/productCollections")
       .then(({ data }) => {
-        dispatch(fetchRecommendProductSuccessActionCreator(data));
+        dispatch(fetchProductSuccessActionCreator(data));
         // setProductList(data)
         // setIsLoad(false)
         // setErrorMsg(null)
       })
       .catch((error) => {
-        dispatch(fetchRecommendProductFailActionCreator(error.toString()));
+        dispatch(fetchProductFailActionCreator(error.toString()));
         // setErrorMsg(error.toString())
         // setIsLoad(false)
       });

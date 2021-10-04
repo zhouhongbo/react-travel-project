@@ -2,8 +2,8 @@ import i18n from "i18next";
 import {
   CHANGE_LANGUAGE,
   ADD_LANGUAGE,
-  LanguageActionTypes,
-} from "./languageActions";
+} from "../actionTypes/language";
+import { LanguageActionTypes } from "../actions/language";
 
 export interface LanguageState {
   language: "en" | "zh";

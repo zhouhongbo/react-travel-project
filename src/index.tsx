@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import axios from "axios";
-import store from "./redux/store";
+import store from "./store";
 import "./i18n/config";
 import App from "./App";
 import "antd/dist/antd.css";
