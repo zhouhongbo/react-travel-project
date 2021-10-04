@@ -22,6 +22,7 @@ const ProductImageComponent: React.FC<PropsType> = ({
   match,
 }) => {
   return (
+    // 或者 <div onClick={() => history.push(`detail/${id}`)}>
     <Link to={`detail/${id}`}>
       {size === "large" ? (
         <Image src={imageSrc} height={285} width={600} />
